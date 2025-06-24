@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-teal-900 to-slate-900 text-white py-16 relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-slate-900 via-teal-900 to-slate-900 text-white pt-16 pb-8 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 right-10 w-32 h-32 bg-teal-400 rounded-full animate-pulse"></div>
@@ -13,22 +13,22 @@ export default function Footer() {
       
       <div className="container mx-auto px-4 lg:px-6 relative z-10">
         {/* Main Footer Content */}
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12 mb-12">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12 mb-4">
           {/* Brand Section */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-3">
+            <div className="flex flex-col items-center">
               <Image
-                src="/images/launchpath-logo.png"
-                alt="LaunchPath Employment"
-                width={180}
-                height={60}
-                className="h-12 w-auto brightness-0 invert"
+                src="/images/Launchlogo.png"
+                alt="LaunchPath Logo"
+                width={224}
+                height={112}
+                className="h-28 max-h-28 w-auto object-contain"
               />
+              <p className="text-teal-100 text-sm leading-relaxed mt-2 text-center">
+                Connecting university students with businesses for professional, affordable project-based services. 
+                Building the future workforce, one project at a time.
+              </p>
             </div>
-            <p className="text-teal-100 text-sm leading-relaxed">
-              Connecting university students with businesses for professional, affordable project-based services. 
-              Building the future workforce, one project at a time.
-            </p>
             <div className="flex space-x-4">
               <div className="w-10 h-10 bg-teal-800 rounded-lg flex items-center justify-center hover:bg-teal-700 transition-colors">
                 <Mail className="h-5 w-5 text-teal-200" />

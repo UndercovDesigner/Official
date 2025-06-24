@@ -162,11 +162,11 @@ export default function ManagerLoginPage() {
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
             <Image
-              src="/images/launchpath-logo.png"
-              alt="LaunchPath"
-              width={200}
-              height={50}
-              className="h-12 w-auto"
+              src="/images/Launchlogo.png"
+              alt="LaunchPath Logo"
+              width={128}
+              height={64}
+              className="h-16 max-h-16 w-auto object-contain"
             />
           </div>
           <CardTitle className="text-2xl font-bold text-gray-900">Manager Access</CardTitle>

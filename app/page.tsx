@@ -1033,12 +1033,12 @@ This is a test submission. In production, you would integrate with an email serv
                         required
                       >
                         <option value="">Select a service...</option>
-                        <option value="Web Development (LaunchTech)">🌐 Web Development (LaunchTech)</option>
-                        <option value="Digital Marketing (BrightMarketing)">📢 Digital Marketing (BrightMarketing)</option>
-                        <option value="Bookkeeping (FreshBooks Assist)">📊 Bookkeeping (FreshBooks Assist)</option>
-                        <option value="Virtual Admin (ClearDesk)">💼 Virtual Admin (ClearDesk)</option>
-                        <option value="Tutoring (NextTutors)">📚 Tutoring (NextTutors)</option>
-                        <option value="Multiple Services">🎯 Multiple Services</option>
+                        <option value="Web Development (LaunchTech)">Web Development (LaunchTech)</option>
+                        <option value="Digital Marketing (BrightMarketing)">Digital Marketing (BrightMarketing)</option>
+                        <option value="Bookkeeping (FreshBooks Assist)">Bookkeeping (FreshBooks Assist)</option>
+                        <option value="Virtual Admin (ClearDesk)">Virtual Admin (ClearDesk)</option>
+                        <option value="Tutoring (NextTutors)">Tutoring (NextTutors)</option>
+                        <option value="Multiple Services">Multiple Services</option>
                       </select>
                     </div>
                     

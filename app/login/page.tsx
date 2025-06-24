@@ -73,11 +73,11 @@ export default function LoginPage() {
           {/* Logo */}
           <div className="text-center mb-8">
             <Image
-              src="/images/launchpath-logo.png"
-              alt="LaunchPath Employment"
-              width={200}
-              height={60}
-              className="h-12 w-auto mx-auto"
+              src="/images/Launchlogo.png"
+              alt="LaunchPath Logo"
+              width={128}
+              height={64}
+              className="h-16 max-h-16 w-auto object-contain"
             />
           </div>
 

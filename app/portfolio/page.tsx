@@ -54,7 +54,7 @@ const projects: Project[] = [
     description: "Complete online store with payment integration and inventory management",
     category: "web-development",
     division: "LaunchTech",
-    image: "/images/placeholder.jpg",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop&crop=center",
     client: "Bella's Boutique",
     duration: "3 weeks",
     teamSize: 3,
@@ -74,7 +74,7 @@ const projects: Project[] = [
     description: "Comprehensive social media strategy and content creation",
     category: "marketing",
     division: "BrightMarketing",
-    image: "/images/placeholder.jpg",
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&h=500&fit=crop&crop=center",
     client: "Green Earth Cafe",
     duration: "2 months",
     teamSize: 2,
@@ -94,7 +94,7 @@ const projects: Project[] = [
     description: "Complete accounting system setup with staff training",
     category: "bookkeeping",
     division: "FreshBooks",
-    image: "/images/placeholder.jpg",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop&crop=center",
     client: "TechStart Consulting",
     duration: "1 week",
     teamSize: 1,
@@ -109,7 +109,7 @@ const projects: Project[] = [
     description: "Salesforce setup and data migration for growing agency",
     category: "admin",
     division: "ClearDesk",
-    image: "/images/placeholder.jpg",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&crop=center",
     client: "Creative Solutions Agency",
     duration: "2 weeks",
     teamSize: 2,
@@ -124,7 +124,7 @@ const projects: Project[] = [
     description: "Customized learning plans for high school students",
     category: "tutoring",
     division: "NextTutors",
-    image: "/images/placeholder.jpg",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=500&fit=crop&crop=center",
     client: "Riverside High School",
     duration: "Ongoing",
     teamSize: 4,
@@ -144,7 +144,7 @@ const projects: Project[] = [
     description: "Modern, mobile-first website with online ordering",
     category: "web-development",
     division: "LaunchTech",
-    image: "/images/placeholder.jpg",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=500&fit=crop&crop=center",
     client: "Pizza Palace",
     duration: "2 weeks",
     teamSize: 2,
@@ -215,75 +215,78 @@ export default function PortfolioPage() {
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
-              <Card key={project.id} className="group hover:shadow-xl transition-all duration-300 cursor-pointer border-2 hover:border-teal-200">
+              <Card key={project.id} className="group hover:shadow-2xl transition-all duration-500 cursor-pointer border-0 bg-gradient-to-br from-white to-slate-50 overflow-hidden">
                 <CardHeader className="p-0">
-                  <div className="relative overflow-hidden rounded-t-lg">
+                  <div className="relative overflow-hidden">
                     <Image
                       src={project.image}
                       alt={project.title}
                       width={400}
                       height={250}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute top-3 right-3">
-                      <Badge className={project.status === "completed" ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800"}>
-                        {project.status === "completed" ? "Completed" : "In Progress"}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute top-4 right-4">
+                      <Badge className={`${project.status === "completed" ? "bg-green-500 text-white" : "bg-yellow-500 text-white"} shadow-lg`}>
+                        {project.status === "completed" ? "✓ Completed" : "⏳ In Progress"}
                       </Badge>
                     </div>
-                    {/* Overlay with demo message */}
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 text-center">
-                        <p className="text-sm font-medium text-slate-800">This is how your project will look!</p>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                        <p className="text-sm font-semibold text-slate-800">This is how your project will look!</p>
+                        <p className="text-xs text-slate-600 mt-1">Professional showcase with results & testimonials</p>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
-                      <CardDescription className="text-sm mb-3">{project.description}</CardDescription>
+                  <div className="p-6 pb-4">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex-1">
+                        <CardTitle className="text-xl mb-2 text-slate-900 group-hover:text-teal-700 transition-colors">{project.title}</CardTitle>
+                        <CardDescription className="text-sm mb-3 text-slate-600 leading-relaxed">{project.description}</CardDescription>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm text-slate-600">
-                    <span className="font-medium">{project.client}</span>
-                    <span>•</span>
-                    <span>{project.division}</span>
+                    <div className="flex items-center space-x-2 text-sm text-slate-600 bg-slate-100 rounded-lg px-3 py-2">
+                      <span className="font-semibold text-slate-800">{project.client}</span>
+                      <span className="text-slate-400">•</span>
+                      <span className="text-teal-600 font-medium">{project.division}</span>
+                    </div>
                   </div>
                 </CardHeader>
                 
-                <CardContent className="space-y-4">
+                <CardContent className="p-6 pt-0 space-y-5">
                   {/* Project Stats */}
-                  <div className="grid grid-cols-3 gap-4 text-sm">
+                  <div className="grid grid-cols-3 gap-4 text-sm bg-gradient-to-r from-teal-50 to-blue-50 rounded-xl p-4">
                     <div className="text-center">
-                      <div className="flex items-center justify-center space-x-1 text-slate-600">
-                        <Calendar className="h-4 w-4" />
-                        <span>{project.duration}</span>
+                      <div className="flex items-center justify-center space-x-1 text-slate-700">
+                        <Calendar className="h-4 w-4 text-teal-600" />
+                        <span className="font-medium">{project.duration}</span>
                       </div>
                     </div>
                     <div className="text-center">
-                      <div className="flex items-center justify-center space-x-1 text-slate-600">
-                        <Users className="h-4 w-4" />
-                        <span>{project.teamSize} students</span>
+                      <div className="flex items-center justify-center space-x-1 text-slate-700">
+                        <Users className="h-4 w-4 text-teal-600" />
+                        <span className="font-medium">{project.teamSize} students</span>
                       </div>
                     </div>
                     <div className="text-center">
-                      <div className="flex items-center justify-center space-x-1 text-slate-600">
-                        <DollarSign className="h-4 w-4" />
-                        <span>{project.price}</span>
+                      <div className="flex items-center justify-center space-x-1 text-slate-700">
+                        <DollarSign className="h-4 w-4 text-teal-600" />
+                        <span className="font-medium">{project.price}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Results */}
-                  <div className="space-y-2">
-                    <h4 className="font-medium text-slate-900 flex items-center space-x-2">
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-slate-900 flex items-center space-x-2">
                       <TrendingUp className="h-4 w-4 text-teal-600" />
                       <span>Key Results</span>
                     </h4>
-                    <ul className="space-y-1">
+                    <ul className="space-y-2">
                       {project.results.slice(0, 2).map((result, index) => (
-                        <li key={index} className="text-sm text-slate-600 flex items-start space-x-2">
-                          <div className="w-1.5 h-1.5 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
-                          <span>{result}</span>
+                        <li key={index} className="text-sm text-slate-700 flex items-start space-x-3 bg-white rounded-lg p-3 border border-slate-200">
+                          <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="leading-relaxed">{result}</span>
                         </li>
                       ))}
                     </ul>
@@ -292,7 +295,7 @@ export default function PortfolioPage() {
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">
+                      <Badge key={tag} className="bg-teal-100 text-teal-800 hover:bg-teal-200 text-xs font-medium">
                         {tag}
                       </Badge>
                     ))}
@@ -300,17 +303,17 @@ export default function PortfolioPage() {
 
                   {/* Testimonial */}
                   {project.testimonial && (
-                    <div className="bg-slate-50 rounded-lg p-4 border-l-4 border-teal-500">
-                      <p className="text-sm text-slate-700 italic mb-2">"{project.testimonial.text}"</p>
+                    <div className="bg-gradient-to-r from-teal-50 to-blue-50 rounded-xl p-4 border-l-4 border-teal-500">
+                      <p className="text-sm text-slate-700 italic mb-3 leading-relaxed">"{project.testimonial.text}"</p>
                       <div className="text-xs text-slate-600">
-                        <span className="font-medium">{project.testimonial.author}</span>
-                        <span className="ml-1">• {project.testimonial.role}</span>
+                        <span className="font-semibold text-slate-800">{project.testimonial.author}</span>
+                        <span className="ml-2 text-slate-500">• {project.testimonial.role}</span>
                       </div>
                     </div>
                   )}
 
                   {/* View Details Button */}
-                  <Button variant="outline" className="w-full group-hover:bg-teal-600 group-hover:text-white group-hover:border-teal-600 transition-colors">
+                  <Button className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-0">
                     <span>View Project Details</span>
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>

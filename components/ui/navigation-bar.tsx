@@ -36,11 +36,11 @@ export default function NavigationBar() {
         <div className="flex items-center space-x-2">
           <Link href="/">
             <Image
-              src="/images/launchpath-logo.png"
-              alt="LaunchPath Employment"
-              width={180}
-              height={60}
-              className="h-10 w-auto"
+              src="/images/Launchlogo.png"
+              alt="LaunchPath Logo"
+              width={80}
+              height={80}
+              className="h-20 w-20 object-contain"
             />
           </Link>
         </div>
@@ -105,13 +105,10 @@ export default function NavigationBar() {
             <div className="absolute inset-0 bg-teal-100 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 origin-center"></div>
           </Link>
           
-          <button 
-            onClick={scrollToContact}
-            className="group relative px-4 py-2 text-sm font-medium text-slate-700 hover:text-teal-600 transition-all duration-200 rounded-lg hover:bg-teal-50"
-          >
+          <Link href="/#contact" className="group relative px-4 py-2 text-sm font-medium text-slate-700 hover:text-teal-600 transition-all duration-200 rounded-lg hover:bg-teal-50">
             <span className="relative z-10">Contact</span>
             <div className="absolute inset-0 bg-teal-100 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 origin-center"></div>
-          </button>
+          </Link>
         </nav>
         
         {/* Mobile Menu Button */}
@@ -161,11 +158,11 @@ export default function NavigationBar() {
             <div className="p-6">
               <div className="flex items-center justify-between mb-8">
                 <Image
-                  src="/images/launchpath-logo.png"
-                  alt="LaunchPath Employment"
+                  src="/images/Launchlogo.png"
+                  alt="LaunchPath Logo"
                   width={150}
                   height={50}
-                  className="h-8 w-auto"
+                  className="h-12 w-auto"
                 />
                 <button 
                   className="p-2 rounded-lg hover:bg-slate-100"
@@ -199,12 +196,9 @@ export default function NavigationBar() {
                 <Link href="/portfolio" className="block px-4 py-3 text-sm font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors duration-200">
                   Portfolio
                 </Link>
-                <button 
-                  onClick={scrollToContact}
-                  className="w-full text-left px-4 py-3 text-sm font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors duration-200"
-                >
+                <Link href="/#contact" className="w-full block text-left px-4 py-3 text-sm font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 rounded-lg transition-colors duration-200">
                   Contact
-                </button>
+                </Link>
               </nav>
               
               <div className="mt-8 pt-6 border-t border-slate-200 space-y-3">
