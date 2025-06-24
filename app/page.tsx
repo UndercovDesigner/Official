@@ -35,6 +35,42 @@ import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import Footer from "@/components/footer"
 
+function useUnblurOnScroll() {
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("unblurred");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    document.querySelectorAll(".scroll-unblur").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+}
+
+function useFadeInOnScroll() {
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    document.querySelectorAll(".scroll-fadein, .scroll-fadein-child").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+}
+
 export default function LaunchPathWebsite() {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const [currentYear, setCurrentYear] = useState("")
@@ -123,6 +159,9 @@ This is a test submission. In production, you would integrate with an email serv
     }
   }, [])
 
+  useUnblurOnScroll();
+  useFadeInOnScroll();
+
   return (
     <div className="min-h-screen bg-white">
       <style jsx global>{`
@@ -207,7 +246,7 @@ This is a test submission. In production, you would integrate with an email serv
       `}</style>
 
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-50 via-teal-50 to-blue-50 relative overflow-hidden">
+      <section className="py-6 lg:py-10 bg-gradient-to-br from-slate-50 via-teal-50 to-blue-50 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -223,11 +262,11 @@ This is a test submission. In production, you would integrate with an email serv
         <div className="absolute top-60 left-1/3 w-14 h-14 bg-teal-300 rounded-full opacity-15 animate-pulse" style={{animationDelay: '0.5s'}}></div>
         <div className="absolute bottom-40 right-1/3 w-18 h-18 bg-blue-300 rounded-full opacity-10 animate-pulse" style={{animationDelay: '1.5s'}}></div>
         <div className="absolute top-80 right-1/4 w-10 h-10 bg-purple-300 rounded-full opacity-20 animate-pulse" style={{animationDelay: '0.8s'}}></div>
-        <div className="absolute bottom-60 left-1/5 w-16 h-16 bg-teal-400 rounded-full opacity-10 animate-pulse" style={{animationDelay: '2.5s'}}></div>
+        <div className="absolute bottom-40 left-1/5 w-16 h-16 bg-teal-400 rounded-full opacity-10 animate-pulse" style={{animationDelay: '2.5s'}}></div>
         <div className="absolute top-40 left-2/3 w-12 h-12 bg-blue-400 rounded-full opacity-15 animate-pulse" style={{animationDelay: '1.2s'}}></div>
         
         <div className="container mx-auto px-4 lg:px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="space-y-8 hero-animate">
               <div className="space-y-6">
                 <Badge className="bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:from-teal-600 hover:to-teal-700 px-4 py-2 text-sm font-semibold shadow-lg">
@@ -280,7 +319,7 @@ This is a test submission. In production, you would integrate with an email serv
             </div>
             <div className="relative hero-animate float-animation">
               <div className="bg-white rounded-2xl shadow-2xl p-7 border">
-                <h3 className="font-semibold text-slate-900 mb-5 text-center">🚀 Your Path to Success Starts Here</h3>
+                <h3 className="font-semibold text-slate-900 mb-5 text-center text-lg sm:text-xl">Your Path to Success Starts Here</h3>
                 <div className="space-y-5">
                   <div className="flex items-center space-x-3">
                     <div className="w-9 h-9 bg-teal-100 rounded-full flex items-center justify-center text-teal-600 font-bold text-sm">1</div>
@@ -330,9 +369,6 @@ This is a test submission. In production, you would integrate with an email serv
                     Apply as a Student
                   </Button>
                   
-                  <div className="mt-5 text-xs text-slate-500">
-                    No experience required • Flexible hours • Build your resume
-                  </div>
                   <div className="mt-2 text-xs text-teal-600 font-semibold">
                     🚀 Earn $500-2000 per project while building your career!
                   </div>
@@ -355,7 +391,7 @@ This is a test submission. In production, you would integrate with an email serv
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
+      <section id="services" className="py-20 bg-white scroll-fadein">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-900">Five Specialized Divisions</h2>
@@ -506,7 +542,7 @@ This is a test submission. In production, you would integrate with an email serv
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 bg-slate-50">
+      <section id="how-it-works" className="py-20 bg-slate-50 scroll-fadein">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-900">How It Works</h2>
@@ -614,7 +650,7 @@ This is a test submission. In production, you would integrate with an email serv
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-20 bg-white">
+      <section id="benefits" className="py-20 bg-white scroll-fadein">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* For Businesses */}
@@ -811,7 +847,7 @@ This is a test submission. In production, you would integrate with an email serv
       </div>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-gradient-to-br from-slate-50 to-teal-50 relative overflow-hidden">
+      <section id="contact" className="py-16 bg-gradient-to-br from-slate-50 to-teal-50 relative overflow-hidden scroll-fadein">
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 opacity-3">
           <div className="absolute top-20 left-10 w-16 h-16 bg-teal-200 rounded-full animate-pulse"></div>
